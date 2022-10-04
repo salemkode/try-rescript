@@ -1,11 +1,11 @@
-type hash = NodeJs.Buffer.t => NodeJs.Buffer.t
+type hashFunction = NodeJs.Buffer.t => NodeJs.Buffer.t
 type randomBytes = int => NodeJs.Buffer.t
 type crypto = {
-  sha256: hash,
-  ripemd160: hash,
-  hash256: hash,
-  hash160: hash,
-  randomBytes: randomBytes,
+  sha256: hashFunction,
+  ripemd160: hashFunction,
+  hash256: hashFunction,
+  hash160: hashFunction,
+  randomBytes: hashFunction,
 }
 type lbox = {"Crypto": crypto}
 @module @new external openLbox: lbox = "lbox"
