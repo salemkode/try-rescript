@@ -1,4 +1,5 @@
-const { fromXPub } = require("./src/index.bs");
+const { a } = require("./src/crypto.bs")
+const { fromXPub } = require("./src/fromXpub.bs");
 // 
 let xpub =
   "xpub6DTNmB7gWa8RtQAfmy8wSDikM5mky4fhsnqQd9AqoCaLcekqNgRZW5JCSXwXkLDkABHTD1qx7kqrbGzT6xBGfAvCJSj2rwvKWP8eZBR2EVA";
@@ -11,3 +12,5 @@ let xpub2 =
 "tpubDCrnMSKwDMAbxg82yqDt97peMvftCXk3EfBb9WgZh27mPbHGkysU3TW7qX5AwydmnVQfaGeNhUR6okQ3dS5AJTP9gEP7jk2Wcj6Xntc6gNh";
 //bchtest:qq322ataqeas4n0pdn4gz2sdereh5ae43ylk4qdvus
 fromXPub(xpub2, "0/4").then(console.log);
+
+console.log(a())
