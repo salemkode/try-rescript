@@ -2,7 +2,7 @@
   "name": "your-project-name",
   "sources": [
     {
-      "dir": "src",
+      "dir": "./src",
       "subdirs": true
     }
   ],
