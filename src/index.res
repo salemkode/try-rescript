@@ -1,15 +1,29 @@
+open Bchjs
+open Promise
+
 // create mnemonic
-let mnemonic = Mnemonic.generate(. 128)
+let mnemonic = "upper live drama long foster clap monster test fringe ticket renew ticket" // bchjs.mnemonic->Mnemonic.generate(128)
+
 // create seed buffer from mnemonic
 let main = () => {
-  let _ = Mnemonic.toSeed(. mnemonic)->Promise.then(seedBuffer => {
-    // create HDNode from seed buffer
-    let hdNode = Hdnode.fromSeed(. seedBuffer)
-    // to cash address
-    Js.log(Hdnode.toCashAddress(hdNode))
-    // bitcoincash:qqrz6kqw6nvhwgwrt4g7fggepvewtkr7nukkeqf4rw
-    Promise.resolve()
-  })
+  let _ =
+    bchjs.mnemonic
+    ->Mnemonic.toSeed(mnemonic)
+    ->then(seedBuffer => {
+      // create rootnode HDNode from seed buffer
+      let hdnode = bchjs.hdnode->Hdnode.fromSeed(seedBuffer)
+
+      // Get child node
+      let childHdnode = bchjs.hdnode->Hdnode.derivePath(hdnode, "m/44'/145'/0'")
+
+      // Get address from child node and log it
+      // Js.log(Hdnode.toCashAddress(hdnode)) // Error you can't use root node
+      Js.log(bchjs.hdnode->Hdnode.toCashAddress(childHdnode, false))
+
+      // Resolve then
+      Promise.resolve()
+    })
 }
 
+// Run main code
 main()
