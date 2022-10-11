@@ -12,8 +12,9 @@ module Age = {
   include BaseInt
 }
 
-type token = {age: Age.t}
+type token = {age: Age.t, age2: Age.t}
 
 let token = {
   age: Age.fromInt(10),
+  age2: BaseInt.fromInt(10),
 }
