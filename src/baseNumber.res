@@ -12,9 +12,18 @@ module Age = {
   include BaseInt
 }
 
-type token = {age: Age.t, age2: Age.t}
-
-let token = {
-  age: Age.fromInt(10),
-  age2: BaseInt.fromInt(10),
+module Price = {
+  include BaseInt
 }
+
+let getPrice = () => {
+  Price.fromInt(200)
+}
+
+type token = {age: Age.t, price: Price.t}
+let token = {
+  age: getPrice(),
+  price: Age.fromInt(10),
+}
+
+let age = Age.fromInt(10)

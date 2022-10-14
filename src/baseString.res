@@ -15,13 +15,22 @@ module CashAddress = {
   let addressRegexp = Js.Re.fromString("^((bitcoincash:)?(q|p)[a-z0-9]{41})")
   let fromString: string => t = address => {
     if Js.Re.test_(addressRegexp, address) {
-      address
+      // address
+      BaseString.fromString(address)
     } else {
       raise(Invalid_argument(""))
     }
   }
 }
-type wallet = {address: CashAddress.t}
+type wallet = {address: CashAddress.t, address2: CashAddress.t}
 let token = {
-  address: CashAddress.fromString(""),
+  address: BaseString.fromString("hggjgh"),
+  address2: CashAddress.fromString("hggjgh"),
 }
+
+let converCashAdress = (address: CashAddress.t) => {
+  // Code of convert
+  CashAddress.toString(address)
+}
+
+Js.log(converCashAdress(BaseString.fromString("ldjhgusdgugfb")))

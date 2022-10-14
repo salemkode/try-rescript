@@ -4,6 +4,10 @@
     {
       "dir": "./src",
       "subdirs": true
+    },
+    {
+      "dir": "./test",
+      "subdirs": true
     }
   ],
   "package-specs": [
@@ -12,6 +16,7 @@
       "in-source": true
     }
   ],
-  "suffix": ".bs.js",
-  "bs-dependencies": ["rescript-nodejs", "@ryyppy/rescript-promise"]
+  "suffix": ".js",
+  "bs-dependencies": ["rescript-nodejs", "@ryyppy/rescript-promise", "rescript-fast-check", "rescript-mocha"],
+  "bs-dev-dependencies": []
 }
